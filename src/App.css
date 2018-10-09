@@ -1,0 +1,51 @@
+.App {
+  text-align: center;
+}
+
+.logo {
+  animation: logo-spin infinite 20s linear;
+  height: 80px;
+  display:block;
+  margin:25px auto;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+#container {
+  width:75%;
+  margin:0 auto;
+}
+
+.se {
+  background-color: red;
+}
+
+/* #basePizza {
+}
+#sauce {
+  pointer-events: none;
+}
+#toppings {
+  pointer-events: none;
+}
+#turboDroneDelivery {
+  pointer-events: none;
+} */
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
