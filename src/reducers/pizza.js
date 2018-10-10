@@ -11,8 +11,6 @@ const initialState = {
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     case PIZZA:
-    // console.log("state", state)
-    // console.log("payload", action.payload)
       return {...state, ...action.payload}
     case TOPPINGS:
       return {...state, toppings: [...action.payload.toppings], price: state.price + action.payload.price}

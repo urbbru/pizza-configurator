@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {basePizza, sauce, toppings, turboDroneDelivery} from '../lib/pizzaData'
 import pizza from '../pizza.svg'
-import { Row, Col, Button, Select, Form, Switch, Radio } from 'antd'
+import { Row, Col, Button, Select, Form, Switch, Radio, Card } from 'antd'
 const FormItem = Form.Item
 const RadioGroup = Radio.Group;
 const RadioButton = Radio.Button
@@ -12,8 +12,9 @@ const Option = Select.Option;
 export default function PizzaConfig(props) {
     const showPrice = () => {
         if (props.order.price > 0) {
-              return <p>your total price is : {props.order.price}</p>
+              return <span className="price">{props.order.price}</span>
         }
+        return <span className="price">0</span>
     }
     return (
         <div>
@@ -23,13 +24,22 @@ export default function PizzaConfig(props) {
 
             <Row type="flex" justify="space-around">
                 <Col span={10}>
-                    <div id="errMsg"></div>
-                    <div id="totalPrice">{showPrice()}</div>
+                    <Card
+                        title="Your pizza"
+                        extra={<Button onClick={props.onSubmit}>Order</Button>}
+                        style={{ width: 300 }}
+                    >
+                        <p id="errMsg"></p>
+                        <p id="errMsg2"></p>
+                        <p id="totalPrice">Your pizza will cost: {showPrice()}</p>
+                    </Card>
+                    {/* <div id="errMsg"></div>
+                    <div id="totalPrice">{showPrice()}</div> */}
                 </Col>
                 <Col span={10}>
                     <Form>
 
-                        <FormItem label="Choose your base pizza">  
+                        <FormItem label="Choose your base pizza(*)">  
                             <RadioGroup onChange={props.onChange}>
                             {basePizza.map(base => {
                                 return <RadioButton key={base.value} value={base.value}>{base.value}</RadioButton>
@@ -37,7 +47,7 @@ export default function PizzaConfig(props) {
                             </RadioGroup>
                         </FormItem>
 
-                        <FormItem label="Choose your sauce">  
+                        <FormItem label="Choose your sauce(*)">  
                             <RadioGroup onChange={props.onChange}>
                             {sauce.map(sauce => {
                                 return <RadioButton key={sauce.value} value={sauce.value}>{sauce.value}</RadioButton>
@@ -45,7 +55,7 @@ export default function PizzaConfig(props) {
                             </RadioGroup>
                         </FormItem>
 
-                        <FormItem label="Choose your toppings(max 3)">
+                        <FormItem label="Choose your toppings">
                             <Select
                                 mode="multiple"
                                 placeholder="Please select"
@@ -61,8 +71,6 @@ export default function PizzaConfig(props) {
                         <FormItem label="Turbo drone delivery?(This will increase the total price with 10%)">  
                             <Switch onChange={props.onChange}/>
                         </FormItem>
-
-                        <Button>Submit</Button>
 
                     </Form>
                 </Col>

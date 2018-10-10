@@ -1,3 +1,3 @@
-Configurate your pizza
-git clone then (yarn install/npm install)
-then (yarn start/npm start)
+Configurate your pizza<br>
+Git clone then "yarn install" / "npm install"<br>
+then "yarn start" / "npm start"
