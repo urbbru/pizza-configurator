@@ -30,11 +30,8 @@ export default function PizzaConfig(props) {
                         style={{ width: 300 }}
                     >
                         <p id="errMsg"></p>
-                        <p id="errMsg2"></p>
                         <p id="totalPrice">Your pizza will cost: {showPrice()}</p>
                     </Card>
-                    {/* <div id="errMsg"></div>
-                    <div id="totalPrice">{showPrice()}</div> */}
                 </Col>
                 <Col span={10}>
                     <Form>
